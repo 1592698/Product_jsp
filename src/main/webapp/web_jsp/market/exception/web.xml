@@ -1,0 +1,54 @@
+
+<web-app>
+<!-- 10. 선언적 시큐리티 처리 -->
+   <!-- 시큐리티 역할을 설정하도록 <security-role> 요소를 작성 -->
+   <security-role>
+      <description></description>
+      <role-name>admin</role-name>
+   </security-role>
+   <!-- // 시큐리티 영할을 설정하도록 <security-role> 요소를 작성 -->
+   <!-- 시큐리티 제약 사항을 설정하도록 <security-constraint> 요소를 작성 -->   
+   <security-constraint>
+		<display-name>WebMarket Security</display-name>
+		<web-resource-collection>
+			<web-resource-name>WebMarket</web-resource-name>
+			<description></description>
+			<!--  접근을 제한할 요청 경로를 설정하도록 <url-pattern> 요소를 작성 -->
+			<url-pattern>/web_jsp/market/addProduct.jsp</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<description>권한 관리자명</description>
+			<role-name>admin</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	<!-- FORM 인증 처리 기법을 설정하도록 <auth-method> 요소를 작성 -->
+	<login-config>
+	<auth-method>FORM</auth-method>
+	<form-login-config>
+		<form-login-page>/web_jsp/market/login.jsp</form-login-page>
+		<form-error-page>/web_jsp/market/login_failed.jsp</form-error-page>
+	</form-login-config>
+	</login-config>
+	<!-- //FORM 인증 처리 기법을 설정하도록 <auth-method>요소를 작성 -->
+	
+	<!-- 오류가 발생했을 때 오류 상태와 오류 페이지를 출력하도록 작성 -->
+	<!-- <error-page>
+		<error-code>500</error-code>
+		<location>/web_jsp/exception/errorCode_error.jsp</location>
+	</error-page>
+	 -->
+	<!--  <error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/web_jsp/exception/exceptionType_error.jsp</location>
+	</error-page>
+	-->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/web_jsp/market/exceptionNoPage.jsp</location>
+	</error-page>
+	
+</web-app>
+			
+			
+			

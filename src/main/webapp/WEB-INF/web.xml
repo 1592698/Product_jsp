@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+<security-role>
+    <description></description>
+    <role-name>admin</role-name>
+</security-role>
+<security-constraint>
+    <display-name>WebMarket Security</display-name>
+    <web-resource-collection>
+        <web-resource-name>WebMarket</web-resource-name>
+        <description></description>
+        <url-pattern>/04_action_tag/bookMarket/addBook.jsp</url-pattern>
+        <!--            <http-method>GET</http-method>-->
+    </web-resource-collection>
+    <auth-constraint>
+        <description>권한 관리자명</description>
+        <role-name>admin</role-name>
+    </auth-constraint>
+</security-constraint>
+<!-- <login-config>
+             <auth-method>BASIC</auth-method>
+     <auth-method>FORM</auth-method>
+     <form-login-config>
+         <form-login-page>/04_action_tag/bookMarket/login.jsp</form-login-page>
+         <form-error-page>/04_action_tag/bookMarket/login_failed.jsp</form-error-page>
+     </form-login-config>
+
+</login-config>-->
+<!--    <error-page>-->
+<!--        <error-code>500</error-code>-->
+<!--        <location>/11_exception/errorCode_error.jsp</location>-->
+<!--    </error-page>-->
+<!--    <error-page>-->
+<!--        <exception-type>java.lang.Exception</exception-type>-->
+<!--        <location>/11_exception/exceptionType_error.jsp</location>-->
+<!--    </error-page>-->
+
+<!--    <error-page>-->
+<!--        <error-code>404</error-code>-->
+<!--        <location>/04_action_tag/bookMarket/exceptionNoPage.jsp</location>-->
+<!--    </error-page>-->
+
+<!--        <servlet>-->
+<!--            <servlet-name>myController</servlet-name>-->
+<!--            <servlet-class>mvc.controller.ControllerServlet</servlet-class>-->
+<!--        </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>myController</servlet-name>-->
+<!--        <url-pattern>/18_mvc/ControllerServlet</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--        <servlet>-->
+<!--            <servlet-name>BoardController</servlet-name>-->
+<!--            <servlet-class>mvc.controller.BoardController</servlet-class>-->
+<!--        </servlet>-->
+<!--        <servlet-mapping>-->
+<!--            <servlet-name>BoardController</servlet-name>-->
+<!--            <url-pattern>*.do</url-pattern>-->
+<!--        </servlet-mapping>-->
+
+</web-app>
